@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const inputText = document.getElementById('inputText');
-    const checkBtn = document.getElementById('checkBtn');
+    const inputText = document.getElementById('text-input');
+    const checkBtn = document.getElementById('check-btn');
+    const clearBtn = document.getElementById('clear-btn');
     const result = document.getElementById('result');
 
     const palindromeChecker = (str) => {
@@ -9,14 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     checkBtn.addEventListener('click', () => {
-        const inputValue = inputText.value.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+        let initialValue = inputText.value;
+        const filteredValue = initialValue.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
 
-        if (inputValue === '') {
+        if (filteredValue === '') {
             alert('Please Input a value.');
         } else {
-            const inputResult = palindromeChecker(inputValue);
-
-            result.textContent = inputResult ? `${inputValue} is a Palindrome`: `${inputValue} is not a Palindrome`;
+            const inputResult = palindromeChecker(filteredValue);
+            result.textContent = inputResult ? `${initialValue} is a Palindrome`: `${initialValue} is not a Palindrome`;
         }
+    })
+
+    clearBtn.addEventListener('click', () => {
+        result.textContent = '';
+        inputText.value = '';
+        inputText.focus();
     })
 })
