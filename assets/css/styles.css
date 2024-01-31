@@ -1,3 +1,13 @@
+:root {
+    --ff-title: Oswald, sans-serif;
+    --ff-text: 'Source Sans 3', sans-serif;
+
+    --copper: #a8763eff;
+    --cosmic-latte: #f7f3e3ff;
+    --antiflash-white: #ecf0f1ff;
+    --barn-red: #6f1a07ff;
+    --bistre: #2b2118ff;
+}
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,10 +16,38 @@
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: 1px;
+    background-color: var(--bistre);
 }
 input, button {
     font: inherit;
+    font-family: var(--ff-text);
 }
 p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
-  }
+}
+/* typography */
+.main-title {
+    font-family: var(--ff-title);
+    font-size: 3.6rem;
+}
+.main-trivia {
+    font-family: var(--ff-title);
+    font-size: 1.4rem;
+}
+/* general styling */
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    max-width: 480px;
+    width: 90%;
+    margin-inline: auto;
+    border: 1px solid red;
+}
+.form-controls {
+    padding: 2rem 1rem;
+}
